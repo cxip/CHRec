@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.RecursiveSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightBeige">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            android:text="@string/interests_title" />
+
+            <FrameLayout
+                android:id="@+id/content_wrap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <me.grishka.appkit.views.UsableRecyclerView
+                    android:id="@+id/list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:clipToPadding="false"
+                    android:scrollbars="vertical" />
+
+                <ViewStub
+                    android:id="@+id/empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout="?emptyViewLayout" />
+            </FrameLayout>
+
+    </LinearLayout>
+</me.grishka.appkit.views.RecursiveSwipeRefreshLayout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/refresh_layout"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#FFF">
+
+<!--ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:fillViewport="true"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" -->
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:orientation="vertical"
+			android:padding="16dp">
+
+			<SearchView
+				android:id="@+id/search"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:iconifiedByDefault="false"
+				android:queryHint="@string/search_hint">
+
+			</SearchView>
+
+			<RelativeLayout
+				android:id="@+id/switchLayout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginEnd="20dp"
+				android:orientation="horizontal"
+				tools:visibility="visible">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentStart="true"
+					android:layout_centerVertical="true"
+					android:text="@string/people"
+					android:textSize="18sp" />
+
+				<Switch
+					android:id="@+id/search_switch"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_centerInParent="true"
+					android:layout_gravity="center"
+					android:layout_marginTop="20dp"
+					android:layout_marginBottom="20dp"
+					android:gravity="center"
+					android:showText="true"
+					android:textOff="                         "
+					android:textOn="                         "
+					android:textSize="22sp" />
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentEnd="true"
+					android:layout_centerVertical="true"
+					android:gravity="center"
+					android:text="@string/clubs"
+					android:textSize="18sp" />
+
+			</RelativeLayout>
+
+			<TextView
+				android:id="@+id/suggested_to_follow"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="20dp"
+				android:layout_marginBottom="15dp"
+				android:text="@string/suggested_to_follow"
+				android:textStyle="bold"
+				android:visibility="gone"
+				tools:visibility="visible" />
+
+			<FrameLayout
+				android:id="@+id/content_wrap"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent">
+
+				<me.grishka.appkit.views.UsableRecyclerView
+					android:id="@+id/list"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:clipToPadding="false"
+					android:scrollbars="vertical" />
+
+				<ViewStub
+					android:id="@+id/empty"
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout="?emptyViewLayout" />
+			</FrameLayout>
+		</LinearLayout>
+
+		<ImageView
+			android:id="@+id/imgView"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@color/lightBeige"
+			android:scaleType="fitCenter"
+			android:visibility="gone" />
+
+	</FrameLayout>
+
+<!--/ScrollView-->
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

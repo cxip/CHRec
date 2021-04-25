@@ -1,0 +1,54 @@
+<manifest package="co.cxip.chrec"
+	xmlns:android="http://schemas.android.com/apk/res/android">
+
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO" />
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<!-- The Agora SDK requires Bluetooth permissions in case users are using Bluetooth devices.-->
+	<uses-permission android:name="android.permission.BLUETOOTH" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+	<uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+	<uses-permission android:name="android.permission.READ_CONTACTS"/>
+
+	<application
+		android:allowBackup="false"
+		android:fullBackupContent="false"
+		android:label="@string/app_name"
+		android:theme="@style/AppTheme"
+		android:name="co.cxip.chrec.App"
+		android:icon="@mipmap/ic_launcher"
+		android:roundIcon="@mipmap/ic_launcher_round"
+		android:usesCleartextTraffic="true">
+		<activity android:name="co.cxip.chrec.MainActivity" android:configChanges="screenSize|orientation" android:launchMode="singleTask">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN"/>
+				<category android:name="android.intent.category.LAUNCHER"/>
+			</intent-filter>
+			<intent-filter android:label="@string/app_name">
+				<action android:name="android.intent.action.VIEW"/>
+				<category android:name="android.intent.category.BROWSABLE"/>
+				<category android:name="android.intent.category.DEFAULT" />
+				<data android:host="ios.joinclubhouse.com" android:pathPrefix="/room/" android:scheme="https"/>
+				<data android:host="ios.joinclubhouse.com" android:pathPrefix="/event/" android:scheme="https"/>
+				<data android:host="ios.joinclubhouse.com" android:pathPrefix="/club/" android:scheme="https"/>
+				<data android:host="www.joinclubhouse.com" android:pathPrefix="/room/" android:scheme="https"/>
+				<data android:host="www.joinclubhouse.com" android:pathPrefix="/event/" android:scheme="https"/>
+				<data android:host="www.joinclubhouse.com" android:pathPrefix="/club/" android:scheme="https"/>
+			</intent-filter>
+		</activity>
+		<service android:name="co.cxip.chrec.VoiceService" android:stopWithTask="true" />
+		<receiver android:name="co.cxip.chrec.notification.NotificationHandlerBroadcastReceiver" />
+		<provider
+			android:name="androidx.core.content.FileProvider"
+			android:authorities="${applicationId}.provider"
+			android:exported="false"
+			android:grantUriPermissions="true">
+			<meta-data
+				android:name="android.support.FILE_PROVIDER_PATHS"
+				android:resource="@xml/provider_paths" />
+		</provider>
+	</application>
+</manifest>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/content_wrap"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="16dp">
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+
+				<co.cxip.chrec.views.SquircleImageView
+					android:id="@+id/photo"
+					android:layout_width="72dp"
+					android:layout_height="72dp"
+					tools:src="#0f0"/>
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="1dp"
+					android:layout_weight="1"/>
+
+				<ImageButton
+					android:id="@+id/files"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:minWidth="0dp"
+					android:src="@drawable/ic_files"
+					style="@style/Widget.Button.Grey"/>
+
+				<Button
+					android:id="@+id/follow_btn"
+					android:layout_width="wrap_content"
+					android:layout_height="40dp"
+					android:layout_gravity="center_vertical"
+					android:background="@drawable/round_corners_chblue"
+					android:text="@string/follow" />
+
+			</LinearLayout>
+
+			<TextView
+				android:id="@+id/name"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:layout_marginEnd="10dp"
+				android:fontFamily="sans-serif-medium"
+				android:textSize="18dp"
+				tools:text="User Name" />
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/username"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="13dp"
+					tools:text="\@username"/>
+
+				<TextView
+					android:id="@+id/follows_you"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="13dp"
+					android:layout_marginLeft="16dp"
+					android:alpha="0.5"
+					android:text="@string/follows_you"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="16dp"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/followers"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:textSize="13dp"
+					tools:text="25 followers"/>
+
+				<TextView
+					android:id="@+id/following"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="16dp"
+					android:textSize="13dp"
+					tools:text="25 following"/>
+
+			</LinearLayout>
+
+			<TextView
+				android:id="@+id/status"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="32dp"
+				android:layout_marginBottom="32dp"
+				android:textSize="15dp"
+				tools:text="bio here"/>
+
+			<LinearLayout
+				android:id="@+id/social"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="-16dp"
+				android:layout_marginBottom="30dp"
+				android:orientation="horizontal">
+
+				<TextView
+					android:id="@+id/twitter"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginRight="16dp"
+					android:layout_weight="1"
+					android:drawableLeft="@drawable/ic_twitter"
+					android:drawablePadding="8dp"
+					android:paddingTop="4dp"
+					android:paddingBottom="4dp"
+					android:textSize="15dp"
+					tools:text="twitter" />
+
+				<TextView
+					android:id="@+id/instagram"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:drawableLeft="@drawable/ic_instagram"
+					android:drawablePadding="8dp"
+					android:paddingTop="4dp"
+					android:paddingBottom="4dp"
+					android:textSize="15dp"
+					tools:text="instagram" />
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/mutuals_layout"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:layout_gravity="center_vertical"
+				android:layout_marginEnd="10dp"
+				android:layout_marginBottom="20dp"
+				android:orientation="horizontal">
+
+				<RelativeLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginEnd="15dp">
+
+					<co.cxip.chrec.views.SquircleImageView
+						android:id="@+id/mutualpic1"
+						android:layout_width="42dp"
+						android:layout_height="42dp"
+						tools:src="#0f0" />
+
+					<co.cxip.chrec.views.SquircleImageView
+						android:id="@+id/mutualpic2"
+						android:layout_width="42dp"
+						android:layout_height="42dp"
+						android:layout_alignStart="@id/mutualpic1"
+						android:layout_alignBottom="@id/mutualpic1"
+						android:layout_marginStart="34dp"
+						android:scaleType="centerInside" />
+
+				</RelativeLayout>
+
+				<View
+					android:layout_width="0dp"
+					android:layout_height="1dp"
+					android:layout_weight="1" />
+
+				<TextView
+					android:id="@+id/mutuals"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_gravity="center_vertical|end"
+					android:gravity="center_vertical"
+					android:singleLine="false" />
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/inviter_btn"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal">
+
+				<co.cxip.chrec.views.SquircleImageView
+					android:id="@+id/inviter_photo"
+					android:layout_width="48dp"
+					android:layout_height="48dp"
+					android:layout_marginRight="8dp"
+					tools:src="#0f0"/>
+
+				<TextView
+					android:id="@+id/invite_info"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:textSize="14dp"
+					tools:text="Joined 1/2/3\nNominated by whomever"/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:id="@+id/club_layout"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:visibility="gone"
+				tools:visibility="visible">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="15dp"
+					android:layout_marginBottom="10dp"
+					android:text="@string/member_of" />
+
+				<me.grishka.appkit.views.UsableRecyclerView
+					android:id="@+id/recyclerView"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+
+			</LinearLayout>
+
+		</LinearLayout>
+	</ScrollView>
+
+	<ImageView
+		android:id="@+id/imgView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:background="@color/lightBeige"
+		android:scaleType="fitCenter"
+		android:visibility="gone" />
+
+</FrameLayout>

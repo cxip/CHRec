@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="1dp">
+
+    <co.cxip.chrec.views.SquircleImageView
+        android:id="@+id/icon"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/ic_baseline_person_24" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mahmoud S" />
+
+</LinearLayout>

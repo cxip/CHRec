@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="16dp">
+
+		<TextView
+			android:id="@+id/num_of_invites"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="20dp"
+			android:gravity="center"
+			android:textSize="20sp"
+			tools:text="You have 3 invites" />
+
+		<TextView
+			android:id="@+id/textView"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginStart="20dp"
+			android:layout_marginEnd="20dp"
+			android:layout_marginBottom="10dp"
+			android:gravity="center"
+			android:lines="2"
+			android:text="@string/invite_text" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="20dp"
+			android:background="@drawable/white_round_rectangle"
+			android:gravity="center_vertical"
+			android:padding="4dp">
+
+			<com.rilixtech.widget.countrycodepicker.CountryCodePicker
+				android:id="@+id/country_code_picker"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginStart="8dp"
+				app:ccp_enableHint="false"
+				app:ccp_hideNameCode="true"
+				app:ccp_hidePhoneCode="false" />
+
+			<EditText
+				android:id="@+id/invite_phone_num"
+				android:layout_width="match_parent"
+				android:layout_height="48dp"
+				android:layout_marginStart="4dp"
+				android:layout_marginEnd="8dp"
+				android:layout_weight="1"
+				android:background="@null"
+				android:hint="@string/phone_number"
+				android:inputType="phone"
+				android:textColorHint="@color/hint" />
+
+			<Button
+				android:id="@+id/addressbook"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:background="@android:color/transparent"
+				android:minWidth="48dp"
+				android:minHeight="48dp"
+				android:text="@string/addressbook"
+				android:textSize="24sp" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/final_phone_layout"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:background="@drawable/white_round_rectangle"
+			android:gravity="center_vertical"
+			android:padding="4dp"
+			android:visibility="gone">
+
+			<Button
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:background="@drawable/round_corners_white"
+				android:minWidth="48dp"
+				android:minHeight="48dp"
+				android:text="@string/phone"
+				android:textSize="24sp" />
+
+			<TextView
+				android:id="@+id/final_phone_number"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:layout_marginStart="20dp"
+				android:layout_marginRight="10dp"
+				android:layout_weight="1" />
+
+			<Button
+				android:id="@+id/invite_button"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center"
+				android:background="@drawable/round_corners_chblue"
+				android:minHeight="38dip"
+				android:text="@string/invite_button_label" />
+		</LinearLayout>
+	</LinearLayout>
+</ScrollView>

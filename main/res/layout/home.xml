@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?>
+<me.grishka.appkit.views.RecursiveSwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightBeige">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/seatch_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="0"
+                android:background="@android:color/transparent"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:text="@string/lens"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/invite_button"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/round_corners_green_border_black"
+                android:minWidth="24dp"
+                android:minHeight="24dp"
+                android:text=""
+                android:textSize="14sp" />
+
+            <ImageButton
+                android:id="@+id/events"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:src="@drawable/ic_baseline_calendar_today_24" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp">
+
+                <ImageButton
+                    android:id="@+id/notification_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:minWidth="48dp"
+                    android:minHeight="48dp"
+                    android:src="@drawable/ic_notifications" />
+
+                <TextView
+                    android:id="@+id/unread_notifications"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|left"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/record"
+                    android:textSize="8sp"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+            </FrameLayout>
+
+            <co.cxip.chrec.views.RoundedImageButton
+                android:id="@+id/profile_button"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_marginEnd="20dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/round_corners_border_black"
+                android:scaleType="centerInside"
+                app:radius="12"
+                android:src="@drawable/ic_baseline_person_24" />
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <FrameLayout
+                android:id="@+id/content_wrap"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <me.grishka.appkit.views.UsableRecyclerView
+                    android:id="@+id/list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clipToPadding="false"
+                    android:scrollbars="vertical" />
+
+                <ViewStub
+                    android:id="@+id/empty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout="?emptyViewLayout" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
+
+                    <Button
+                        android:id="@+id/start_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/round_corners_green"
+                        android:gravity="center"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/start_room"
+                        android:textSize="18sp" />
+
+                    <ImageButton
+                        android:id="@+id/friends"
+                        style="@style/Widget.Button.Grey"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:minWidth="0dp"
+                        android:src="@drawable/ic_friends" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/home_club"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/round_corners_button"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:paddingStart="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingBottom="10dp"
+                    android:visibility="visible"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/club_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="10dp"
+                        android:ellipsize="marquee"
+                        android:gravity="start"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:singleLine="true"
+                        android:textSize="14sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <co.cxip.chrec.views.SquircleImageView
+                                android:id="@+id/pic1"
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                tools:src="#0f0" />
+
+                            <co.cxip.chrec.views.SquircleImageView
+                                android:id="@+id/pic2"
+                                android:layout_width="42dp"
+                                android:layout_height="42dp"
+                                android:layout_alignLeft="@id/pic1"
+                                android:layout_alignBottom="@id/pic1"
+                                android:layout_marginLeft="34dp"
+                                android:scaleType="centerInside" />
+
+                        </RelativeLayout>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <Button
+                            android:id="@+id/leave"
+                            style="@style/Widget.Button.Grey"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:layout_marginEnd="2dp"
+                            android:text="@string/leave_room_hand" />
+
+                        <Button
+                            android:id="@+id/speaker"
+                            style="@style/Widget.Button.Grey"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:minWidth="0dp"
+                            android:text="@string/speaker_off" />
+
+                        <Button
+                            android:id="@+id/ping"
+                            style="@style/Widget.Button.Grey"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="2dp"
+                            android:layout_marginEnd="2dp"
+                            android:minWidth="42dp"
+                            android:minHeight="42dp"
+                            android:text="@string/plus"
+                            android:textColor="@android:color/black"
+                            android:textSize="24sp" />
+
+                        <ImageButton
+                            android:id="@+id/raise"
+                            style="@style/Widget.Button.Grey"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="2dp"
+                            android:minWidth="42dp"
+                            android:minHeight="42dp"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_raised_hand_transparent" />
+
+                        <!-- Button
+				android:id="@+id/raise"
+				style="@style/Widget.Button.Grey"
+				android:layout_width="42dp"
+				android:layout_height="42dp"
+				android:layout_gravity="center_vertical"
+				android:minWidth="42dp"
+				android:minHeight="42dp"
+				android:text="@string/hand_normal" / -->
+
+                        <ImageButton
+                            android:id="@+id/mute"
+                            style="@style/Widget.Button.Grey"
+                            android:layout_width="42dp"
+                            android:layout_height="42dp"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="2dp"
+                            android:minWidth="42dp"
+                            android:minHeight="42dp"
+                            android:src="@drawable/ic_mic_off" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/create_room"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:visibility="gone"
+                tools:visibility="gone">
+
+                <View
+                    android:id="@+id/back_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="bottom"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    tools:visibility="visible">
+
+                    <RelativeLayout
+                        android:id="@+id/row1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="10dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/close_create_room"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:background="@android:color/transparent"
+                            android:text="&#10006;"
+                            android:textColor="@android:color/black"
+                            android:visibility="gone" />
+
+                        <Button
+                            android:id="@+id/addtopic"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginRight="10dp"
+                            android:background="@android:color/transparent"
+                            android:text="@string/add_topic"
+                            android:textColor="@color/green" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/row2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="bottom"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/openroom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_corners"
+                            android:text="@string/open_room"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/socialroom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_corners"
+                            android:text="@string/social_room"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:id="@+id/closedroom"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/round_corners"
+                            android:text="@string/closed_room"
+                            android:textColor="@android:color/black"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="?android:attr/listDivider" />
+
+                    <TextView
+                        android:id="@+id/start_a_room"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:maxLines="3"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/start_room_with_topic_text" />
+
+                    <Button
+                        android:id="@+id/start_a_room_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@drawable/round_corners_green"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:text="@string/lets_go"
+                        android:textSize="20sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </FrameLayout>
+    </LinearLayout>
+</me.grishka.appkit.views.RecursiveSwipeRefreshLayout>
